@@ -13,7 +13,16 @@ app.use('/javascript', express.static(path.join(__dirname, 'javascript')));
 app.set('view engine', 'ejs');
 app.use(bp.urlencoded({ extended: false }));
 app.get('/', (req, res) => res.send('Hello World!'));
-app.get('/login', login.userLogin);
+app.get('/etkinlikolustur', login.userLogin);
+app.get('/guncelle', login.userGuncelle);
+
 app.post('/guncelle', login.Guncelle);
+
+app.post('/etkinlikolustur', login.userLogin);
+app.get('/gozat', login.userGozAt);
+app.get('/oturumac', login.userOturumAc);
+app.post('/etkinlikleregozat', login.userGozAt);
+app.post('/oturumac', login.userOturumAc);
+
 
 app.listen(port, () => console.log(`Port Çalışıyor :  ${port}!`));
